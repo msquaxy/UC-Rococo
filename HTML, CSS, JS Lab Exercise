@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+
+    <style>
+        /* Remove padding and margin of the list */
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Style list items */
+        li {
+            list-style-type: none;
+            font-size: 20px;
+            padding: 14px 10px 14px 40px;
+        }
+
+        /* Odd list items */
+        li:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        /* Even list items */
+        li:nth-child(even) {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <h2>My To Do List</h2>
+
+    <!-- Input field and button -->
+    <input type="text" id="taskInput" placeholder="Enter a task…">
+    <button onclick="addListItem()">Add</button>
+
+    <!-- To Do List -->
+    <ul id="taskList">
+        <li>Buy groceries</li>
+        <li>Clean the house</li>
+        <li>Finish homework</li>
+        <li>Read a book</li>
+    </ul>
+
+    <!-- JavaScript -->
+    <script>
+        // Create a new list item when clicking on the "Add" button
+        function addListItem() {
+            var li = document.createElement("li");
+            var inputValue = document.getElementById("taskInput").value;
+            var t = document.createTextNode(inputValue);
+            li.appendChild(t);
+
+            if (inputValue === '') {
+                alert("You must write something!");
+            } else {
+                document.getElementById("taskList").appendChild(li);
+            }
+
+            document.getElementById("taskInput").value = "";
+        }
+    </script>
+
+</body>
+</html>
